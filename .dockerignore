@@ -1,0 +1,7 @@
+**.md
+.dockerignore
+.gitignore
+/.github
+/kube
+/lz-tha
+Dockerfile

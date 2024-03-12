@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: data-api
+spec:
+  rules:
+  - host: data-api.example.com
+    http:
+      paths:
+      # Could be a prefix, but this prevents exposing probes to the Internet.
+      # Other paths/prefixes can be specified individually, alternatively probes may be moved
+      # to a separate port within the application.
+      - pathType: Exact
+        path: /
+        backend:
+          service:
+            name: data-app
+            port:
+              number: 80
